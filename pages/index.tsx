@@ -27,10 +27,16 @@ const Home: NextPage = () => {
       </Canvas> */}
 
       <Canvas style={{ height: "100vh" }}>
-        <OrbitControls autoRotate={true} enableZoom={false} />
+        <OrbitControls
+          minPolarAngle={Math.PI / 5}
+          maxPolarAngle={Math.PI / 3}
+          autoRotate={true}
+          enableZoom={false}
+        />
+        <fog attach="fog" args={["white", 10, 20]} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[-2, 5, 2]} intensity={1} />
-        <Suspense fallback={<>rooben</>}>
+        <Suspense fallback={<>Failed to load 3d object.</>}>
           <Shoppingcart />
         </Suspense>
       </Canvas>
